@@ -1,0 +1,13 @@
+.productsFeed__first{
+    display: flex;
+}
+
+.productFeed__image{
+    width: 100%;
+}
+
+@media screen and (max-width:768px) {
+    .productsFeed__first{
+        flex-wrap: wrap;
+    }
+}

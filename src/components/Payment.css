@@ -1,0 +1,40 @@
+.payment{
+    background-color: white;
+}
+.payment__container > h2{
+    text-align: center;
+    padding: 10px;
+    font-weight: 500;
+    background-color: rgb(234, 237,237);
+    border-bottom: 1px solid lightgray;
+}
+.payment__container > h2 a{
+    text-decoration: none;
+}
+.payment__section{
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    border-bottom: 1px solid lightgray;
+}
+.payment__section > button{
+    cursor: pointer;
+    padding: 8px;
+    background-color: goldenrod;
+    border: yellow;
+    border-radius: 5px;
+    width: 50%;
+    margin: auto;
+}
+
+@media screen and (max-width:768px) {
+    .payment__container > h2{
+        font-size: 18px;
+    }
+    .payment__section > button{
+        width: 100%;
+    }
+}
