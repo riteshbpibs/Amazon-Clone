@@ -7,7 +7,7 @@ export const ItemContext = createContext();
 export const StateProvider = ({ initialState, reducer, children }) => (
     <ItemContext.Provider value={useReducer(reducer, initialState)} >
         {children}
-    </ItemContext.Provider >
+    </ItemContext.Provider>
 )
 
 // Pull information from the data layer

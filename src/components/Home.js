@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Banner from './Banner';
 import './Home.css'
 import ProductsFeed from './ProductsFeed';
-import { useItemValue } from './StateProvider';
 
 const Home = () => {
 
-    const [{ items }] = useItemValue()
+    const [items, setItems] = useState([])
+    useEffect(() => {
+        const getData = async () => {
+            await fetch("https://fakestoreapi.com/products").then((res) => res.json()).then((data) => setItems(data)).catch((e) => console.log(e))
+        }
+        getData()
+    }, [])
 
     return (
         <div className="home">

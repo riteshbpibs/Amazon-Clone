@@ -1,8 +1,6 @@
-import { products } from "./Items";
-
 export const initialState = {
-    items: products,
-    basket: []
+    basket: [],
+    user: null
 }
 
 // Selector
@@ -11,6 +9,12 @@ export const getBasketTotal = (basket) => basket?.reduce((acc, curr) => curr.pri
 export const reducer = (state, action) => {
     console.log(action);
     switch (action.type) {
+        case "SET_USER":
+            return {
+                ...state,
+                user: action.user
+            }
+            break;
         case "ADD_TO_BASKET":
             return {
                 ...state,

@@ -5,10 +5,17 @@ import React from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom';
 import { useItemValue } from './StateProvider';
+import { auth } from '../firebase';
 
 const Header = () => {
 
-    const [{ basket }, dispatch] = useItemValue()
+    const [{ basket, user }, dispatch] = useItemValue()
+
+    const login = () => {
+        if (user) {
+            auth.signOut()
+        }
+    }
 
     return (
         <header>
@@ -28,14 +35,18 @@ const Header = () => {
                     <div className="header__option header_navCountry">
                         <img src="https://www.wallpapertip.com/wmimgs/233-2330428_tiranga-wallpaper-galleries.jpg" alt="" />
                     </div>
-                    <div className="header__option">
-                        <span className="header__optionLineOne">
-                            Hello
-                        </span>
-                        <span className="header__optionLineTwo">
-                            Sign In
-                        </span>
-                    </div>
+
+                    <Link to={!user && "/login"}>
+                        <div className="header__option" onClick={login}>
+                            <span className="header__optionLineOne">
+                                Hello {user?.email}
+                            </span>
+                            <span className="header__optionLineTwo">
+                                {user ? 'Sign Out' : "Sign In"}
+                            </span>
+                        </div>
+                    </Link>
+
                     <div className="header__option">
                         <span className="header__optionLineOne">
                             Return
